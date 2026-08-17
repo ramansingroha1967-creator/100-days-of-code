@@ -1,0 +1,17 @@
+#include <stdio.h>
+
+int main(){
+    printf("convert celicus into feranhit");
+    
+    int cel;
+    
+    printf("tell the temperature in cel= ");
+    
+    scanf("%d", &cel);
+    
+    float fer= (cel * 9 / 5 ) + 32;
+    
+    printf("temp in fahrenhite =%.2f\n", fer);
+    
+    return 0;
+}
