@@ -1,0 +1,16 @@
+#include <stdio.h>
+int main(){
+    printf("Program to input a character and check whether it is an uppercase alphabet, lowercase alphabet, digit, or special character.\n");
+    char ch;
+    printf("tell your character= ");
+    scanf("%c",&ch);
+    ch>='a' && ch<='z'
+    ?printf("lower case character")
+    :ch>='A' && ch <='Z'
+    ?printf("Uper case character")
+    :ch>='0' && ch<='9'
+    ?printf("digit")
+    :printf("Special character");
+
+return 0;
+}
