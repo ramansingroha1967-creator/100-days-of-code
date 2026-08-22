@@ -1,0 +1,25 @@
+#include <stdio.h>
+int main(){
+    printf("Write a program to input three numbers and find the largest among them using if–else.\n");
+    int a,b,c;
+    printf("Tell your first no= ");
+    scanf("%d",&a);
+    printf("Tell your second no= ");
+    scanf("%d",&b);
+    printf("Tell your third no= ");
+    scanf("%d", &c);
+    if (a>=b && a>=c)
+    {
+        printf("largest no= %d", a);
+    }
+    else if (b>=c && b>=a)
+    {
+        printf("largest no= %d", b);
+    }
+    else if (c>=b && c>=a)
+    {
+        printf("largest no= %d", c);
+    }
+    
+return 0;
+}
