@@ -1,0 +1,19 @@
+#include <stdio.h>
+int main(){
+    int gr;
+    printf("Write a program that accepts a percentage (0-100) and assigns a grade based on the following criteria:\n");
+    printf("tell your grade=");
+    scanf("%d",&gr);
+    gr>90 && gr<100 
+    ? printf("you got 'A' grade\n")
+    :gr>80 && gr<90 
+    ? printf("you got 'B' grade\n")
+    :gr<80 && gr>70
+    ? printf("you got 'C' grade\n")
+    :gr<70 && gr>60
+    ? printf("you got 'D' grade\n")
+    :gr<60
+    ? printf("you got 'F' grade\n")
+    :printf(" invalid grade\n");
+return 0;
+}
