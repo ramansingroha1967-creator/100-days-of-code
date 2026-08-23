@@ -1,0 +1,40 @@
+#include <stdio.h>
+#include <math.h>
+int main(){
+    printf("Write a program to find the roots of a quadratic equation and categorize them.\n");
+    float d,a,b,c,root1,root2;
+    printf("Enter the value of a, b and c: ");
+    scanf("%f %f %f", &a, &b, &c);
+    printf("%.1fx^2+%.1fx+%.1f",a,b,c);
+    
+    if (a==0)
+    {
+        printf("its not a quadratic equation\n");
+    }
+    d= pow(b,2)-4*a*c;
+    if (d>0)
+    {
+        printf("it have two real and unequal roots\n");
+        root1= (-b+pow(d,0.5))/(2*a);
+        root2= (-b-pow(d,0.5))/(2*a);
+        printf(" Real root-1=%.2f\n",root1);
+        printf(" Real root-1=%.2f\n",root2);
+    }
+    else if (d==0)
+    {
+        printf("two real and equal roots\n");
+        root1=-b/(2*a);
+        printf("both roots are=%.2f\n", root1);
+    }
+    else if (d<0)
+    {
+        printf("it have two imaginry roots\n");
+        root1= (-b)/(2*a);
+        root2= pow(-d,0.5)/2*a;
+        printf("root 1= %.2f + %.2f\n",root1,root2);
+        printf("root 2= %.2f - %.2f",root1,root2);
+    }
+    
+    
+return 0;
+}
