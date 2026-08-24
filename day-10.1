@@ -1,0 +1,29 @@
+#include <stdio.h>
+int main(){
+    printf("Program to classify a triangle as Equilateral, Isosceles, or Scalene based on its side lengths.\n");
+    int a,b,c;
+     printf("enter the lenghts of triangle");
+     scanf("%d %d %d", &a,&b,&c);
+    if(a<=0 || b<=0 || c<=0)
+    {
+        printf("This is invalid triangle\n");
+    }
+    else if (a+b<=c || b+c<=a || a+c<=b)
+    {
+         printf("This is invalid triangle\n");
+    }
+    else if (a==b && b==c)
+    {
+         printf("This is Equitateral triangle\n");
+    }
+    else if (a==c || b==c || a==b)
+    {
+         printf("This is Isosceles triangle\n");
+    }
+    else{
+         printf("This is Scalene triangle\n");
+    }
+    
+    
+return 0;
+}
