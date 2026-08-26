@@ -1,0 +1,37 @@
+#include <stdio.h>
+int main(){
+    printf("program to calculate electricity bill based on units consumed with these rates:  \n");
+    int unit,bill;
+    printf(" how many units in your bill=");
+    scanf("%d",&unit);
+    if ( unit>=0 && unit<=100 )
+    {
+        printf("so your bill is %d unit\n",unit);
+        bill=unit*5;
+        printf("your bill is =%d",bill);
+    }
+    else if (unit>100 && unit<=200)
+    {
+        printf("so your bill is %d unit\n",unit);
+        bill=100*5+(unit-100)*7;
+        printf("your bill is =%d",bill);
+    }
+    else if (unit>200&& unit<=300)
+    {
+        printf("so your bill is %d unit\n",unit);
+        bill=100*5+100*7+(unit-200)*10;
+        printf("your bill is =%d",bill);
+    }
+    else if (unit>300)
+    {
+        printf("so your bill is %d unit\n",unit);
+        bill=100*5+100*7+200*10+(unit-300)*12;
+        printf("your bill is =%d",bill);
+    }
+    
+    else{
+        printf("invalid input\n");
+    }
+    
+return 0;
+}
