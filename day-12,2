@@ -1,0 +1,35 @@
+#include <stdio.h>
+int main(){
+    printf("program to calculate library fine based on late days as follows: \n");
+    int day,fine;
+    printf(" how many days you are late=");
+    scanf("%d",&day);
+    if (day<=5 )
+    {
+        printf("so you are late for %d days\n",day);
+        fine=day*2;
+        printf("your fine is =%d",fine);
+    }
+    else if (day>5 && day<=10)
+    {
+        printf("so you are late for %d days\n",day);
+        fine=5*2+(day-5)*4;
+        printf("your fine is =%d",fine);
+    }
+    else if (day>10&& day<=20)
+    {
+        printf("so you are late for %d days\n",day);
+        fine=5*2+5*4+(day-10)*6;
+        printf("your fine is =%d",fine);
+    }
+    else if (day>20)
+    {
+        printf("your Membership cancelled\n");
+    }
+    
+    else{
+        printf("invalid input\n");
+    }
+    
+return 0;
+}
