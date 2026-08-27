@@ -1,0 +1,40 @@
+#include <stdio.h>
+int main()
+{
+    printf("Write a program to implement a basic calculator using switch-case for +, -, *, /,divide\n");
+    double a,b,val;
+    char choose;
+    printf("Enter the two value =");
+    scanf("%lf %lf",&a,&b);
+    printf("Enter '+' for sum.\n Enter '-' for subraction.\n Enter '*' for multiply.\n Enter '/' for divide.\n");
+    scanf(" %c",&choose);
+    switch(choose)
+    {
+        case '+':
+        val=a+b;
+        printf("sum is =%lf ",val);
+        break;
+        case '-':
+        val=a-b;
+        printf("sub is=%lf", val);
+        break;
+        case '*':
+        val=a*b;
+        printf("multiply is=%lf", val);
+        break;
+        case '/':
+        if (b!=0)
+        {
+            val=a/b;
+            printf("divide is=%lf", val);
+        }
+        else {
+            printf("not valid");
+        }
+        break;
+        default:
+        printf("select correct\n");
+        break;
+    }
+return 0;
+}
