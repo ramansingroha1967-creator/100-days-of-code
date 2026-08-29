@@ -1,0 +1,25 @@
+#include <stdio.h>
+int main(){
+    printf("Write a program to calculate the factorial of a number.\n");
+    int a,i=1,sum=1;
+    printf("tell number whose factorial you want=");
+    scanf("%d",&a);
+    if (a>0)
+    {
+        while(i<=a){
+        sum*=i;
+        i++;
+    }
+    printf("factorial is=%d",sum);
+    }
+    else if (i=0)
+    {
+        printf("factorial is=%d",sum);
+    }
+    else{
+        printf("enter a valid int\n");
+    }
+    
+    
+return 0;
+}
