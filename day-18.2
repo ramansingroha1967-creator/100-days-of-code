@@ -1,0 +1,14 @@
+#include <stdio.h>
+int main(){
+    printf("Write a program to find the HCF (GCD) of two numbers.\n");
+    printf("enter two numbers=");
+    int a,b,side;
+    scanf("%d %d", &a,&b);
+    while(b!=0){
+        side=b;
+        b=a%b;
+        a=side;
+    }
+    printf("HCF is= %d", a);
+return 0;
+}
