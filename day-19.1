@@ -1,0 +1,21 @@
+#include <stdio.h>
+int main()
+{
+    printf("Write a program to find the LCM of two numbers.\n");
+    int a, b, temp1, temp2, rem, lcm, hcf;
+    printf("enter values= ");
+    scanf("%d %d", &a, &b);
+    temp1 = a;
+    temp2 = b;
+    while (temp2 != 0)
+    {
+        rem = temp1 % temp2;
+        temp1 = temp2;
+        temp2 = rem;
+    }
+    hcf = temp1;
+    lcm = (a * b) / hcf;
+    printf("the lcm is %d", lcm);
+
+    return 0;
+}
