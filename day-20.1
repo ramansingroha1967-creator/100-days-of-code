@@ -1,0 +1,20 @@
+#include <stdio.h>
+int main(){
+    int num;
+    printf("Write a program to find the product of odd digits of a number.\n");
+    scanf("%d",&num);
+    int sum=1,digit=0,temp,hel;
+    temp=num;
+    while(temp!=0){
+        hel=temp%10;
+        if(hel%2!=0){
+            sum=sum*hel;
+        }
+        else{
+
+        }
+        temp/=10;
+    }
+    printf("digit %d sum of odd is %d",num,sum);
+return 0;
+}
