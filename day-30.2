@@ -1,0 +1,27 @@
+#include <stdio.h>
+int main(){
+    printf("Count positive, negative, and zero elements in an array.\n");
+    int n,i;
+    int positive=0,negative=0,zero=0;
+    printf("enter the nth term= ");
+    scanf("%d",&n);
+    int arry[n];
+    for(i=0;i<n;i++){
+        scanf("%d",&arry[i]);
+    }
+    for(i=0;i<n;i++){
+        if(arry[i]<0){
+            negative++;
+        }
+        else if(arry[i]>0){
+            positive++;
+        }
+        else if(arry[i]==0){
+            zero++;
+        }
+    }
+    printf("Total positive number= %d\n",positive);
+    printf("Total negative number= %d\n",negative);
+    printf("Total zeroes= %d\n",zero);
+return 0;
+}
