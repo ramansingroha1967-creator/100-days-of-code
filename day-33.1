@@ -1,0 +1,40 @@
+#include <stdio.h>
+int main()
+{
+    printf("Search in a sorted array using binary search\n");
+    int n, i, key, found = 0;
+    printf("enter the nth value ");
+    scanf("%d", &n);
+    int a[n];
+    for (i = 0; i < n; i++)
+    {
+        scanf("%d", &a[i]);
+    }
+    printf("enter the key= ");
+    scanf("%d", &key);
+    int low = 0, high = n - 1, mid;
+    while (low <= high)
+    {
+        mid = (low + high) / 2;
+        if (a[mid] == key)
+        {
+            printf("element found at index= %d", mid);
+            found = 1;
+            break;
+        }
+        else if (a[mid] < key)
+        {
+            low = mid + 1;
+        }
+        else
+        {
+            high = mid - 1;
+        }
+    }
+    if (found == 0)
+    {
+        printf("sorry but can't find\n");
+    }
+
+    return 0;
+}
