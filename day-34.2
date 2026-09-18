@@ -1,0 +1,37 @@
+#include <stdio.h>
+
+int main()
+{
+    printf("Delete an element from an array.\n");
+
+    int n, i,key;
+
+    printf("Enter size of array: ");
+    scanf("%d", &n);
+
+    int arr[n + 1];
+
+    printf("Enter sorted array elements:\n");
+    for(i = 0; i < n; i++)
+    {
+        scanf("%d", &arr[i]);
+    }
+    printf("Enter the where you wants to print: ");
+    scanf("%d", &key);
+
+    for(i = key - 1; i < n-1;i++)
+    {
+        arr[i] = arr[i + 1];
+    }
+
+    
+    n--;
+
+    printf("Array after insertion:\n");
+    for(i = 0; i < n; i++)
+    {
+        printf("%d\n", arr[i]);
+    }
+
+    return 0;
+}
