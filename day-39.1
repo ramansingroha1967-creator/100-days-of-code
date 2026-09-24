@@ -1,0 +1,47 @@
+#include <stdio.h>
+#include <stdbool.h>
+
+#define ROWS 3
+#define COLS 3
+
+bool areDiagonalDistinct(int mat[ROWS][COLS], int n) {
+    int diag[ROWS];
+    
+    // 1. Extract the main diagonal elements
+    for (int i = 0; i < n; i++) {
+        diag[i] = mat[i][i];
+    }
+    
+    // 2. Check for duplicates in the diagonal array
+    for (int i = 0; i < n; i++) {
+        for (int j = i + 1; j < n; j++) {
+            if (diag[i] == diag[j]) {
+                return false; // Found a duplicate, so not distinct
+            }
+        }
+    }
+    
+    return true; // All elements are unique
+}
+
+int main() {
+
+    int matrix1[ROWS][COLS] = {
+        {1, 2, 3},
+        {4, 5, 6},
+        {7, 8, 9}
+    };
+    int matrix2[ROWS][COLS] = {
+        {1, 2, 3},
+        {4, 5, 6},
+        {7, 8, 1}
+    };
+
+    printf("Matrix 1 Diagonal Distinct? %s\n", 
+           areDiagonalDistinct(matrix1, ROWS) ? "True" : "False");
+           
+    printf("Matrix 2 Diagonal Distinct? %s\n", 
+           areDiagonalDistinct(matrix2, ROWS) ? "True" : "False");
+
+    return 0;
+}
