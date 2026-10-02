@@ -1,0 +1,34 @@
+#include <stdio.h>
+
+int main() {
+    char str[500];
+    int freq[26] = {0}; // Frequency array for lowercase alphabets 'a' to 'z'
+
+    printf("Enter a string: ");
+    fgets(str, sizeof(str), stdin);
+
+    int found = 0;
+
+    for (int i = 0; str[i] != '\0'; i++) {
+        char ch = str[i];
+
+        // Check if the character is a lowercase alphabet
+        if (ch >= 'a' && ch <= 'z') {
+            int index = ch - 'a'; // Map 'a'-'z' to indices 0-25
+            freq[index]++;
+
+            // The moment a count reaches 2, we found our first repeating lowercase letter
+            if (freq[index] == 2) {
+                printf("The first repeating lowercase alphabet is: '%c'\n", ch);
+                found = 1;
+                break; // Stop immediately after finding the first one
+            }
+        }
+    }
+
+    if (!found) {
+        printf("No repeating lowercase alphabets found.\n");
+    }
+
+    return 0;
+}
