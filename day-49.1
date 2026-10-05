@@ -1,0 +1,20 @@
+#include <stdio.h>
+
+int main() {
+    char str[100];
+    int i;
+
+    fgets(str, 100, stdin);
+
+    // Print the first character
+    printf("%c", str[0]);
+
+    // Find first character after every space
+    for (i = 1; str[i] != '\0'; i++) {
+        if (str[i - 1] == ' ' && str[i] != '\n') {
+            printf(" %c", str[i]);
+        }
+    }
+
+    return 0;
+}
