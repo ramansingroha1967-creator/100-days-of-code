@@ -1,0 +1,30 @@
+#include <stdio.h>
+#include <string.h>
+
+void printSubstrings(const char *str) {
+    int n = strlen(str);
+
+    // Starting index of substring
+    for (int i = 0; i < n; i++) {
+        // Ending index of substring
+        for (int j = i; j < n; j++) {
+            // Print characters from index i to j
+            for (int k = i; k <= j; k++) {
+                putchar(str[k]);
+            }
+            putchar('\n');
+        }
+    }
+}
+
+int main() {
+    char str[100];
+
+    printf("Enter a string: ");
+    if (scanf("%99s", str) == 1) {
+        printf("\nAll Substrings:\n");
+        printSubstrings(str);
+    }
+
+    return 0;
+}
