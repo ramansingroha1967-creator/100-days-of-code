@@ -1,0 +1,33 @@
+#include <stdio.h>
+
+void findSubarraySum(int arr[], int n, int target) {
+    int start = 0;
+    int current_sum = 0;
+
+    for (int end = 0; end < n; end++) {
+        current_sum += arr[end];
+
+        // Shrink the window if current_sum exceeds target
+        while (current_sum > target && start <= end) {
+            current_sum -= arr[start];
+            start++;
+        }
+
+        // Check if target is met
+        if (current_sum == target) {
+            printf("Subarray found between indices %d and %d\n", start, end);
+            return;
+        }
+    }
+
+    printf("No subarray with sum %d found.\n", target);
+}
+
+int main() {
+    int arr[] = {1, 4, 20, 3, 10, 5};
+    int n = sizeof(arr) / sizeof(arr[0]);
+    int target = 33; // 20 + 3 + 10 = 33 (indices 2 to 4)
+
+    findSubarraySum(arr, n, target);
+    return 0;
+}
