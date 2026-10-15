@@ -1,0 +1,49 @@
+#include <stdio.h>
+
+#define N 4
+
+// Function to swap two integers
+void swap(int *a, int *b) {
+    int temp = *a;
+    *a = *b;
+    *b = temp;
+}
+
+// In-place transpose function
+void transposeInPlace(int mat[N][N]) {
+    for (int i = 0; i < N; i++) {
+        // Iterate only through the upper triangle above the main diagonal
+        for (int j = i + 1; j < N; j++) {
+            swap(&mat[i][j], &mat[j][i]);
+        }
+    }
+}
+
+// Helper function to print matrix
+void printMatrix(int mat[N][N]) {
+    for (int i = 0; i < N; i++) {
+        for (int j = 0; j < N; j++) {
+            printf("%d\t", mat[i][j]);
+        }
+        printf("\n");
+    }
+}
+
+int main() {
+    int mat[N][N] = {
+        { 1,  2,  3,  4 },
+        { 5,  6,  7,  8 },
+        { 9, 10, 11, 12 },
+        {13, 14, 15, 16 }
+    };
+
+    printf("Original Matrix (%dx%d):\n", N, N);
+    printMatrix(mat);
+
+    transposeInPlace(mat);
+
+    printf("\nTransposed Matrix In-Place (%dx%d):\n", N, N);
+    printMatrix(mat);
+
+    return 0;
+}
