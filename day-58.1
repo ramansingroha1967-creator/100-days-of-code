@@ -1,0 +1,58 @@
+#include <stdio.h>
+
+// Function to find the first occurrence of the target
+int findFirst(int nums[], int size, int target) {
+    int low = 0, high = size - 1;
+    int first = -1;
+    
+    while (low <= high) {
+        int mid = low + (high - low) / 2; // Prevents potential integer overflow
+        if (nums[mid] == target) {
+            first = mid;
+            high = mid - 1; // Search in the left half
+        } else if (nums[mid] < target) {
+            low = mid + 1;
+        } else {
+            high = mid - 1;
+        }
+    }
+    return first;
+}
+
+// Function to find the last occurrence of the target
+int findLast(int nums[], int size, int target) {
+    int low = 0, high = size - 1;
+    int last = -1;
+    
+    while (low <= high) {
+        int mid = low + (high - low) / 2;
+        if (nums[mid] == target) {
+            last = mid;
+            low = mid + 1; // Search in the right half
+        } else if (nums[mid] < target) {
+            low = mid + 1;
+        } else {
+            high = mid - 1;
+        }
+    }
+    return last;
+}
+
+int main() {
+    int nums[] = {2, 5, 5, 5, 5, 7, 8, 8, 10};
+    int size = sizeof(nums) / sizeof(nums[0]);
+    
+    // Test case 1: Target is present
+    int target = 5;
+    int first = findFirst(nums, size, target);
+    int last = findLast(nums, size, target);
+    printf("Target: %d -> Output: %d, %d\n", target, first, last);
+    
+    // Test case 2: Target is absent
+    int target_absent = 6;
+    int first_absent = findFirst(nums, size, target_absent);
+    int last_absent = findLast(nums, size, target_absent);
+    printf("Target: %d -> Output: %d, %d\n", target_absent, first_absent, last_absent);
+    
+    return 0;
+}
