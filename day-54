@@ -1,0 +1,32 @@
+#include <stdio.h>
+#include <math.h>
+
+// Function to find the pivot integer
+int pivotInteger(int n) {
+    // Total sum from 1 to n: S = n * (n + 1) / 2
+    long long total_sum = (long long)n * (n + 1) / 2;
+
+    // If x exists, x^2 must equal total_sum
+    long long x = (long long)round(sqrt(total_sum));
+
+    if (x * x == total_sum) {
+        return (int)x;
+    }
+
+    return -1;
+}
+
+int main() {
+    int n;
+
+    printf("Enter a positive integer n: ");
+    if (scanf("%d", &n) != 1 || n <= 0) {
+        printf("Invalid input. Please enter a positive integer.\n");
+        return 0;
+    }
+
+    int result = pivotInteger(n);
+    printf("Pivot integer: %d\n", result);
+
+    return 0;
+}
