@@ -1,0 +1,50 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+/**
+ * Note: The returned array must be malloced, assume caller calls free().
+ */
+int* productExceptSelf(const int* nums, int numsSize, int* returnSize) {
+    *returnSize = numsSize;
+    int* answer = (int*)malloc(sizeof(int) * numsSize);
+    if (!answer) return NULL;
+
+    // Step 1: Prefix products (products of all elements to the left of i)
+    int prefix_prod = 1;
+    for (int i = 0; i < numsSize; i++) {
+        answer[i] = prefix_prod;
+        prefix_prod *= nums[i];
+    }
+
+    // Step 2: Suffix products (multiply by all elements to the right of i)
+    int suffix_prod = 1;
+    for (int i = numsSize - 1; i >= 0; i--) {
+        answer[i] *= suffix_prod;
+        suffix_prod *= nums[i];
+    }
+
+    return answer;
+}
+
+int main(void) {
+    int nums[] = {1, 2, 3, 4};
+    int numsSize = sizeof(nums) / sizeof(nums[0]);
+    int returnSize = 0;
+
+    int* result = productExceptSelf(nums, numsSize, &returnSize);
+
+    printf("Input:  [");
+    for (int i = 0; i < numsSize; i++) {
+        printf("%d%s", nums[i], (i + 1 < numsSize) ? ", " : "");
+    }
+    printf("]\n");
+
+    printf("Output: [");
+    for (int i = 0; i < returnSize; i++) {
+        printf("%d%s", result[i], (i + 1 < returnSize) ? ", " : "");
+    }
+    printf("]\n"); // Output: [24, 12, 8, 6]
+
+    free(result);
+    return 0;
+}
