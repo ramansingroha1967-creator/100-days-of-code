@@ -1,0 +1,49 @@
+#include <stdio.h>
+#include <string.h>
+
+int lengthOfLongestSubstring(const char *s) {
+    int lastSeen[128];
+    
+    // Initialize all character indices to -1 (not seen yet)
+    for (int i = 0; i < 128; i++) {
+        lastSeen[i] = -1;
+    }
+
+    int maxLength = 0;
+    int left = 0;
+
+    for (int right = 0; s[right] != '\0'; right++) {
+        unsigned char currentChar = s[right];
+
+        // If the character was seen inside the current window, move 'left'
+        if (lastSeen[currentChar] >= left) {
+            left = lastSeen[currentChar] + 1;
+        }
+
+        // Update the last seen index of the current character
+        lastSeen[currentChar] = right;
+
+        // Calculate current window length and update maxLength
+        int currentLength = right - left + 1;
+        if (currentLength > maxLength) {
+            maxLength = currentLength;
+        }
+    }
+
+    return maxLength;
+}
+
+int main() {
+    char s[10000];
+
+    printf("Enter a string: ");
+    if (fgets(s, sizeof(s), stdin) != NULL) {
+        // Remove the trailing newline character added by fgets
+        s[strcspn(s, "\n")] = '\0';
+
+        int result = lengthOfLongestSubstring(s);
+        printf("%d\n", result);
+    }
+
+    return 0;
+}
